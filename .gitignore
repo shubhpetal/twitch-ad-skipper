@@ -1,0 +1,5 @@
+node_modules/
+*.zip
+*.png.tmp
+.DS_Store
+test/output/

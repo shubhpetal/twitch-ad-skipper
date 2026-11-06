@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "version": "2026.11.06",
+  "adMarkers": [
+    "stitched",
+    "X-TV-TWITCH-AD",
+    "EXT-X-CUE-OUT",
+    "SCTE35-OUT",
+    "CLASS=\"twitch-stitched-ad",
+    "CLASS=\"twitch-ad-",
+    "CLASS=\"twitch-ad\"",
+    "/adsquared/"
+  ],
+  "ignoreMarkers": [
+    "CLASS=\"twitch-maf-ad\""
+  ],
+  "adSegmentUrlMarkers": [
+    "stitched",
+    "/adsquared/"
+  ],
+  "liveSegmentTitle": "live",
+  "backupPlayerTypes": [
+    "embed",
+    "popout",
+    "site",
+    "mobile_web",
+    "autoplay"
+  ],
+  "clientId": "kimne78kx3ncx6brgo4mv6wki5h1ko",
+  "tokenHash": "ed230aa1e33e07eebb8928504583da78a5173989fadfb1ac94be06a04f3cdbe9",
+  "hideSelectors": [
+    "[data-test-selector=\"display-ad\"]",
+    "[data-test-selector=\"ad-banner\"]",
+    "[data-a-target=\"ads-banner\"]",
+    ".stream-display-ad__wrapper",
+    "iframe[class*=\"stream-display-ad__iframe\"]"
+  ]
+}

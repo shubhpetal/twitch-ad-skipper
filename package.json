@@ -1,0 +1,13 @@
+{
+  "name": "twitch-ad-skipper",
+  "version": "1.2.0",
+  "private": true,
+  "description": "Browser extension that blocks the video ads Twitch stitches into live streams.",
+  "scripts": {
+    "test": "node test/worker.test.js",
+    "test:browser": "node test/browser.test.js",
+    "test:all": "node test/worker.test.js && node test/browser.test.js",
+    "check": "for f in src/*.js test/*.js; do node --check \"$f\" || exit 1; done && node -e \"JSON.parse(require('fs').readFileSync('manifest.json'));JSON.parse(require('fs').readFileSync('rules.json'))\""
+  },
+  "license": "MIT"
+}

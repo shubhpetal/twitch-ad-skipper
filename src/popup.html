@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Twitch Ad Skipper</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="../icons/icon48.png" alt="" width="28" height="28">
+    <div>
+      <h1>Twitch Ad Skipper</h1>
+      <p id="status" class="status">Active</p>
+    </div>
+  </header>
+
+  <section class="stats" aria-label="Statistics">
+    <div class="stat">
+      <span class="num" id="breaks">0</span>
+      <span class="label">ad breaks blocked</span>
+    </div>
+    <div class="stat">
+      <span class="num" id="time">0m</span>
+      <span class="label">of ads skipped</span>
+    </div>
+  </section>
+
+  <section class="settings" aria-label="Settings">
+    <label class="row">
+      <span>
+        <strong>Block ads</strong>
+        <small>Swap in an ad-free copy of the stream during breaks</small>
+      </span>
+      <input type="checkbox" id="enabled" role="switch">
+    </label>
+    <label class="row">
+      <span>
+        <strong>Use H.264 streams</strong>
+        <small>Avoids black screens on channels that stream in HEVC/AV1</small>
+      </span>
+      <input type="checkbox" id="forceAvc" role="switch">
+    </label>
+  </section>
+
+  <p id="reloadHint" class="hint" hidden>Reload Twitch to apply this change.</p>
+  <p id="health" class="hint warn" hidden></p>
+
+  <section class="updates" aria-labelledby="updatesTitle">
+    <div class="updates-head">
+      <strong id="updatesTitle">Detection rules</strong>
+      <span id="rulesVersion" class="pill">built-in</span>
+    </div>
+    <p id="rulesStatus" class="small">Checked every 6 hours once a rules address is set.</p>
+    <form id="rulesForm" class="url-row">
+      <input id="rulesUrl" type="url" inputmode="url" spellcheck="false" autocomplete="off"
+             placeholder="https://raw.githubusercontent.com/you/repo/main/rules.json" aria-label="Rules file address">
+      <button id="checkNow" type="submit" class="quiet">Check now</button>
+    </form>
+  </section>
+
+  <footer>
+    <button id="reload" type="button">Reload Twitch tabs</button>
+    <button id="reset" type="button" class="quiet">Reset stats</button>
+  </footer>
+  <p class="note">Don't run this alongside another Twitch ad blocker, as they interfere with each other.</p>
+
+  <script src="rules.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

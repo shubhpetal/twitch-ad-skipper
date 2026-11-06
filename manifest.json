@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "Twitch Ad Skipper",
+  "short_name": "Ad Skipper",
+  "version": "1.2.0",
+  "description": "Blocks the video ads Twitch stitches into live streams by switching to an ad-free copy of the stream during ad breaks.",
+  "minimum_chrome_version": "121",
+  "permissions": ["storage", "alarms"],
+  "host_permissions": ["*://*.twitch.tv/*"],
+  "background": {
+    "service_worker": "src/background.js",
+    "scripts": ["src/rules.js", "src/background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.twitch.tv/*"],
+      "js": ["src/rules.js", "src/page.js"],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": true
+    },
+    {
+      "matches": ["*://*.twitch.tv/*"],
+      "js": ["src/bridge.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_title": "Twitch Ad Skipper",
+    "default_popup": "src/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "twitch-ad-skipper@local",
+      "strict_min_version": "128.0",
+      "data_collection_permissions": { "required": ["none"] }
+    }
+  }
+}
