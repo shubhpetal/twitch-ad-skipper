@@ -54,10 +54,11 @@ often live in a small **rules file** instead of in the code:
 from
 `https://raw.githubusercontent.com/shubhpetal/twitch-ad-skipper/main/rules.json`
 every 6 hours and when the browser starts. New rules reach open Twitch tabs
-right away, with no reload needed. A scheduled task checks every day whether
-Twitch has changed something and updates `rules.json` here when it has (see
-[MAINTAINING.md](MAINTAINING.md)). You can also edit it by hand: change the
-value, bump `version`, run `npm test`, push.
+right away, with no reload needed. A scheduled task checks every night whether
+Twitch has changed something. When it has, the task opens a pull request with
+the updated `rules.json` and notifies you, and merging that pull request
+publishes the update (see [MAINTAINING.md](MAINTAINING.md)). You can also edit
+the file by hand: change the value, bump `version`, run `npm test`, push.
 
 To use a different rules file, paste its https address into the popup under
 **Detection rules** and click **Check now**. Clearing the field switches to
